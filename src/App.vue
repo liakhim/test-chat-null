@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>TEST PAGE VUE-CLI</h1>
+    <div class="container">
+      <header class="flex-row-center-between">
+        <Logo/>
+        <NavLanding/>
+      </header>
+      <component :is="layout">
+        <router-view/>
+      </component>
+    </div>
   </div>
 </template>
-
 <script>
-
-
-export default {
-  name: 'App',
-  components: {
-
+  import Logo from "./components/MicroComponents/Logo";
+  import NavLanding from "./components/MicroComponents/NavLanding";
+  export default {
+    components: {Logo,NavLanding},
+    computed: {
+      layout() {
+        return this.$route.meta.layout || 'default-layout'
+      }
+    }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import "styles/normalize";
+  @import "styles/global";
 </style>

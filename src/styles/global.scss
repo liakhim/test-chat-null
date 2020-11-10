@@ -1,0 +1,79 @@
+@mixin flex($direction, $parallel, $perpendicular ) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $parallel;
+  justify-content: $perpendicular;
+}
+
+@for $i from 1 through 5 {
+  .flex-#{$i} {
+    flex:#{$i}
+  }
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+}
+@media (max-width: 1650px) {
+  .container {
+    max-width: 1300px;
+    margin: auto;
+  }
+  body {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media (max-width: 1350px) {
+  body {
+    margin: 0;
+    font-size: 16px;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+//***********************************
+
+.flex-row-center-center {
+  @include flex(row, center, center)
+}
+.flex-row-center-start {
+  @include flex(row, center, flex-start)
+}
+.flex-row-center-end {
+  @include flex(row, center, flex-end)
+}
+.flex-row-center-between {
+  @include flex(row, center, space-between)
+}
+.flex-row-center-around {
+  @include flex(row, center, space-around)
+}
+
+//***********************************
+
+.flex-row-start-center {
+  @include flex(row, start, center)
+}
+.flex-row-start-start {
+  @include flex(row, start, start)
+}
+.flex-row-start-end {
+  @include flex(row, start, end)
+}
+
+//***********************************
+
+.flex-row-end-center {
+  @include flex(row, end, center)
+}
+.flex-row-end-start {
+  @include flex(row, end, start)
+}
+.flex-row-end-end {
+  @include flex(row, end, end)
+}
