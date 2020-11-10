@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>TEST</h1>
+    <h1>TEST PAGE VUE-CLI</h1>
   </div>
 </template>
 
