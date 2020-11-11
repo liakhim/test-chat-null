@@ -1,15 +1,3 @@
-@mixin flex($direction, $parallel, $perpendicular ) {
-  display: flex;
-  flex-direction: $direction;
-  align-items: $parallel;
-  justify-content: $perpendicular;
-}
-
-@for $i from 1 through 5 {
-  .flex-#{$i} {
-    flex:#{$i}
-  }
-}
 
 .container {
   max-width: 1600px;
@@ -37,43 +25,30 @@
 }
 
 //***********************************
-
-.flex-row-center-center {
-  @include flex(row, center, center)
+@for $i from 1 through 5 {
+  .flex-#{$i} {
+    flex:#{$i}
+  }
 }
-.flex-row-center-start {
-  @include flex(row, center, flex-start)
+@mixin flex($direction, $parallel, $perpendicular) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $parallel;
+  justify-content: $perpendicular;
 }
-.flex-row-center-end {
-  @include flex(row, center, flex-end)
+@mixin flex-mixin-row($name-parallel, $name-perpendicular) {
+  .flex-row-#{$name-parallel}-#{$name-perpendicular} {
+    @include flex(row, $name-parallel, $name-perpendicular);
+  }
 }
-.flex-row-center-between {
-  @include flex(row, center, space-between)
-}
-.flex-row-center-around {
-  @include flex(row, center, space-around)
-}
-
-//***********************************
-
-.flex-row-start-center {
-  @include flex(row, start, center)
-}
-.flex-row-start-start {
-  @include flex(row, start, start)
-}
-.flex-row-start-end {
-  @include flex(row, start, end)
-}
-
-//***********************************
-
-.flex-row-end-center {
-  @include flex(row, end, center)
-}
-.flex-row-end-start {
-  @include flex(row, end, start)
-}
-.flex-row-end-end {
-  @include flex(row, end, end)
-}
+@include flex-mixin-row(center, center);
+@include flex-mixin-row(center, flex-start);
+@include flex-mixin-row(center, flex-end);
+@include flex-mixin-row(center, space-between);
+@include flex-mixin-row(center, space-around);
+@include flex-mixin-row(flex-start, center);
+@include flex-mixin-row(flex-start, flex-start);
+@include flex-mixin-row(flex-start, flex-end);
+@include flex-mixin-row(flex-end, center);
+@include flex-mixin-row(flex-end, flex-start);
+@include flex-mixin-row(flex-end, flex-end);

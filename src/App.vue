@@ -5,6 +5,9 @@
         <Logo/>
         <NavLanding/>
       </header>
+      <div class="flex-row-center-center">
+
+      </div>
       <component :is="layout">
         <router-view/>
       </component>
