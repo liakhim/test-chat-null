@@ -1,18 +1,36 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container-fluid">
+            <Sidebar @show-click="showClick"/>
             <slot/>
         </div>
     </div>
 </template>
 
 <script>
+    import Sidebar from "../components/MicroComponents/Sidebar";
     export default {
-        name: 'DefaultLayout'
+        name: 'DefaultLayout',
+        data() {
+          return {
+              show: false
+          }
+        },
+        components: {Sidebar},
+        methods: {
+            showClick() {
+                this.show = true
+            }
+        }
     }
 </script>
 
 <style lang="scss">
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     #nav {
         padding: 30px;
         a {

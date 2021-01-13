@@ -23,32 +23,3 @@
     margin: auto;
   }
 }
-
-//***********************************
-@for $i from 1 through 5 {
-  .flex-#{$i} {
-    flex:#{$i}
-  }
-}
-@mixin flex($direction, $parallel, $perpendicular) {
-  display: flex;
-  flex-direction: $direction;
-  align-items: $parallel;
-  justify-content: $perpendicular;
-}
-@mixin flex-mixin-row($name-parallel, $name-perpendicular) {
-  .flex-row-#{$name-parallel}-#{$name-perpendicular} {
-    @include flex(row, $name-parallel, $name-perpendicular);
-  }
-}
-@include flex-mixin-row(center, center);
-@include flex-mixin-row(center, flex-start);
-@include flex-mixin-row(center, flex-end);
-@include flex-mixin-row(center, space-between);
-@include flex-mixin-row(center, space-around);
-@include flex-mixin-row(flex-start, center);
-@include flex-mixin-row(flex-start, flex-start);
-@include flex-mixin-row(flex-start, flex-end);
-@include flex-mixin-row(flex-end, center);
-@include flex-mixin-row(flex-end, flex-start);
-@include flex-mixin-row(flex-end, flex-end);

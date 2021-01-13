@@ -1,6 +1,6 @@
 <template>
-    <nav class="flex-3 flex-row-center-end">
-        <ul class="flex-row-center-end">
+    <nav class="d-flex">
+        <ul class="d-flex">
             <li>
                 <router-link to="/">Home</router-link>
             </li>

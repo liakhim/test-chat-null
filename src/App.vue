@@ -1,13 +1,9 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <header class="flex-row-center-between">
-        <Logo/>
-        <NavLanding/>
+  <div id="app" ref="app">
+    <div class="container-fluid">
+      <header class="header d-flex">
+          <Logo/>
       </header>
-      <div class="flex-row-center-center">
-
-      </div>
       <component :is="layout">
         <router-view/>
       </component>
@@ -29,4 +25,7 @@
 <style lang="scss">
   @import "styles/normalize";
   @import "styles/global";
+  .header {
+    justify-content: flex-end;
+  }
 </style>
